@@ -16,5 +16,4 @@ Route::get('/', function () {
 });
 
 Route::match(['get', 'post'], 'survey/addQuestion', 'SurveyController@addQuestion');
-Route::post('survey/save', 'SurveyController@save');
-Route::post('survey/add', 'SurveyController@add');
+Route::match(['get', 'post'], 'survey/addSurvey', 'SurveyController@addSurvey');
