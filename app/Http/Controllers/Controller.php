@@ -11,14 +11,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    /**
-     * return success
-     * @param string $msg
-     * @param string $data
-     * @param string $url
-     * @return \Illuminate\Http\JsonResponse
-     */
-    protected function success($msg = '', $data = '', $url = '')
+    public function success($msg = '', $data = '', $url = '')
     {
         return response()->json([
             'status' => 1,
@@ -28,24 +21,12 @@ class Controller extends BaseController
         ]);
     }
 
-    /**
-     * return error
-     * @param string $msg
-     * @param string $url
-     * @return \Illuminate\Http\JsonResponse
-     */
-    protected function error($msg = '', $url = '')
+    public function error($msg = '', $url = '')
     {
         return response()->json([
             'status' => 0,
             'msg' => $msg,
             'url' => $url
         ]);
-    }
-
-    public function getSurvey()
-    {
-        $title = request('title', '');
-
     }
 }

@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Service\QuestionService;
 use App\Http\Service\SurveyService;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class SurveyController extends Controller
@@ -19,6 +17,9 @@ class SurveyController extends Controller
         $this->questionService = $questionService;
     }
 
+    /**
+     * add question
+     */
     public function addQuestion()
     {
         $data = [
@@ -36,21 +37,25 @@ class SurveyController extends Controller
         if (empty($ret)) {
             $this->error('failed to add');
         }
-        $this->success('success');
+        return $this->success('success');
 
     }
 
-    public function addSURVEY()
+    /**
+     * add survey
+     * @throws \App\Exceptions\AppException
+     */
+    public function addSurvey()
     {
         $data = [
-            'title' => \request('title', ''),
-            'before' => \request('before', ''),
-            'after' => \request('after', '')
+            'title'  => request('title', ''),
+            'before' => request('before', ''),
+            'after'  => request('after', '')
         ];
         $id = $this->surveyService->add($data);
         if (empty($ret)) {
-            $this->error('failed to add');
+            return $this->error('failed to add');
         }
-        $this->success('success', $id);
+        return $this->success('success', $id);
     }
 }

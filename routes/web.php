@@ -15,5 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::match(['get', 'post'], 'survey/addQuestion', 'SurveyController@addQuestion');
-Route::match(['get', 'post'], 'survey/addSurvey', 'SurveyController@addSurvey');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
