@@ -11,10 +11,19 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'Admin\AdminController@survey');
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+    Route::get('survey', 'AdminController@survey');
+    Route::get('question/{sid}', 'AdminController@question');
+
+    Route::post('delete', 'AdminController@delete');
+});

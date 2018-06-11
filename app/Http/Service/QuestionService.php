@@ -39,12 +39,12 @@ class QuestionService
      * @param int $perPage      page size
      * @return \Illuminate\Support\Collection
      */
-    public function get($where = [], $page = 1, $perPage = 10)
+    public function getList($where = [], $perPage = null)
     {
         $db = DB::table('question')
             ->where($where);
-        if ($page) {
-            $db->paginate($perPage);
+        if ($perPage) {
+            return $db->paginate($perPage);
         }
         return $db->get();
     }
@@ -72,5 +72,15 @@ class QuestionService
         }
 
         return $question;
+    }
+
+    /**
+     * delete question
+     * @param $id
+     * @return int
+     */
+    public function delete($id)
+    {
+        return DB::table('question')->where('id', $id)->delete();
     }
 }

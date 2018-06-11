@@ -40,16 +40,15 @@ class SurveyService
 
     /**
      * get survey page list
-     * @param array $where      search condition
-     * @param int $page         page number
-     * @param int $perPage      page size
+     * @param array $where search condition
+     * @param int   $perPage page size
      * @return \Illuminate\Support\Collection   return result collection
      */
-    public function getList($where = [], $page = 1, $perPage = 10)
+    public function getList($where = [], $perPage = null)
     {
         $db = DB::table('survey')->where($where);
-        if ($page) {
-            $db->paginate($perPage);
+        if ($perPage) {
+            return $db->paginate($perPage);
         }
         return $db->get();
     }
@@ -58,13 +57,27 @@ class SurveyService
      * delete survey and questions by survey id
      * @param $id       survey id
      * @return bool     succes- return true  error db exceptioon
+     * @throws \Exception
+     * @throws \Throwable
      */
     public function delete($id)
     {
-        DB::transaction(function() {
+        DB::transaction(function() use ($id) {
            DB::table('question')->where('sid', $id)->delete();
            DB::table('survey')->where('id', $id)->delete();
         });
         return true;
+    }
+
+    /**
+     * get a survey
+     * @param $id
+     * @return \Illuminate\Database\Eloquent\Model|null|object|static
+     */
+    public function find($id)
+    {
+        return DB::table('survey')
+            ->where('id', $id)
+            ->first();
     }
 }
