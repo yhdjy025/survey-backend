@@ -67,8 +67,8 @@ class QuestionService
             ->where($where)
             ->first();
         if ($question) {
-            $question['answer'] = json_decode($question['answer'], true);
-            $question['xpath'] = json_decode($question['xpath'], true);
+            $question->answer = json_decode($question->answer, true);
+            $question->xpath = json_decode($question->xpath, true);
         }
 
         return $question;
