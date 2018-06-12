@@ -11,7 +11,7 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -79,5 +79,73 @@ class AdminController extends Controller
             return $this->error('failed to delete it');
         }
         return $this->success('delete success');
+    }
+
+    /**
+     * edit survey
+     * @param int $id
+     * @param SurveyService $surveyService
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
+     */
+    public function editSurvey($id = 0, SurveyService $surveyService)
+    {
+        if (0 == $id) {
+            return $this->error('params error');
+        }
+        if (\request()->isMethod('post')) {
+            $data = [
+                'title' => \request('title', ''),
+                'before' => \request('before', ''),
+                'after' => \request('after', '')
+            ];
+            if (empty($data['title'])) {
+                return $this->error('title is not allow empty');
+            }
+            $ret = $surveyService->update($id, $data);
+            if (empty($ret)) {
+                return $this->error('update failed');
+            }
+            return $this->success('update success');
+            exit;
+        }
+        $survey = $surveyService->find($id);
+        return view('admin.edit_survey', [
+            'survey' => $survey
+        ]);
+    }
+
+    /**
+     * update question
+     * @param int $id
+     * @param QuestionService $questionService
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
+     */
+    public function editQuestion($id = 0, QuestionService $questionService)
+    {
+        if (0 == $id) {
+            return $this->error('params error');
+        }
+        if (\request()->isMethod('post')) {
+            $data = [
+                'title' => \request('title', ''),
+                'type' => \request('type', 1),
+                'script' => \request('script', ''),
+                'xpath' => \request('xpath', []),
+                'answer' => \request('answer', [])
+            ];
+            if (empty($data['title'])) {
+                return $this->error('title is not allow empty');
+            }
+            $ret = $questionService->update($id, $data);
+            if (empty($ret)) {
+                return $this->error('update failed');
+            }
+            return $this->success('update success');
+            exit;
+        }
+        $question = $questionService->findById($id);
+        return view('admin.edit_question', [
+            'question' => $question
+        ]);
     }
 }

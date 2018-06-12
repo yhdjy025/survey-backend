@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Chrome;
 
 use App\Http\Service\QuestionService;
 use App\Http\Service\SurveyService;

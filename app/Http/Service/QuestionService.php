@@ -75,6 +75,36 @@ class QuestionService
     }
 
     /**
+     * update survey
+     * @param $id
+     * @param $data
+     * @return int
+     */
+    public function update($id, $data) {
+        $data['xpath'] = json_encode($data['xpath']);
+        $data['answer'] = json_encode($data['answer']);
+        return DB::table('question')
+            ->where('id', $id)
+            ->update($data);
+    }
+
+    /**
+     * find question by id
+     * @param $id
+     * @return \Illuminate\Database\Eloquent\Model|null|object|static
+     */
+    public function findById($id)
+    {
+        $question = DB::table('question')
+            ->where('id', $id)
+            ->first();
+        $question->xpath = $question->xpath ? json_decode($question->xpath, true) : [];
+        $question->answer = $question->answer ? json_decode($question->answer, true) : [];
+
+        return $question;
+    }
+
+    /**
      * delete question
      * @param $id
      * @return int

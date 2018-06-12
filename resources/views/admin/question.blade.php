@@ -32,7 +32,8 @@
                             <td class="text-right">
                                 <a href="javascript:;" data-url="{{ url('admin/delete') }}" data-type="question"
                                    data-id="{{ $item->id }}" class="label label-danger delete">删除</a>
-                                <a href="" class="label label-success">编辑</a>
+                                <a href="javascript:;" data-url="{{ url('admin/editQuestion') }}/{{ $item->id }}"
+                                   class="label label-success edit">编辑</a>
                             </td>
                         </tr>
                     @endforeach

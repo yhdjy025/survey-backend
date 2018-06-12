@@ -70,6 +70,18 @@ class SurveyService
     }
 
     /**
+     * update survey
+     * @param $id
+     * @param $data
+     * @return int
+     */
+    public function update($id, $data) {
+        return DB::table('survey')
+            ->where('id', $id)
+            ->update($data);
+    }
+
+    /**
      * get a survey
      * @param $id
      * @return \Illuminate\Database\Eloquent\Model|null|object|static

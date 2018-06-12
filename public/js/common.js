@@ -21,4 +21,21 @@ $(function() {
             return false;
         });
     });
+    
+    $('table').on('click', '.edit', function () {
+        var url = $(this).data('url');
+        $.get(url, function (ret) {
+            layer.open({
+                title:'编辑',
+                type: 1,
+                btn: ['确定', '取消'],
+                area:['700px', '400px'],
+                content: ret,
+                yes: function (index) {
+                    editSubmit(index);
+                }
+            })
+
+        })
+    })
 });
