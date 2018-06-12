@@ -22,23 +22,31 @@ class SurveyController extends Controller
      */
     public function addQuestion()
     {
-        $data = [
-            'title'  => request('title', ''),
-            'sid'    => request('sid', 0),
-            'type'   => request('type', 1),
-            'script' => request('script', ''),
-            'answer' => request('answer', []),
-            'xpath'  => request('xpath', [])
-        ];
-        if (empty($data['title'])) {
-            $this->error('params error');
+        $sid = request('sid', 0);
+        if (0 == $sid) {
+            return $this->error('参数错误');
         }
-        $ret = $this->questionService->add($data);
-        if (empty($ret)) {
-            $this->error('failed to add');
+        if (request()->isMethod('post')) {
+            $data = [
+                'title'  => request('title', ''),
+                'sid'    => $sid,
+                'type'   => request('type', 1),
+                'script' => request('script', ''),
+                'answer' => request('answer', []),
+                'xpath'  => request('xpath', [])
+            ];
+            if (empty($data['title'])) {
+                return $this->error('参数错误');
+            }
+            $ret = $this->questionService->add($data);
+            if (empty($ret)) {
+                return $this->error('添加题目失败');
+            }
+            return $this->success('添加如题目成功');
+            exit;
         }
-        return $this->success('success');
-
+        $title = request('title', '');
+        return view('survey.add_question', ['sid' => $sid, 'title' => $title]);
     }
 
     /**
@@ -52,12 +60,15 @@ class SurveyController extends Controller
             'before' => request('before', ''),
             'after'  => request('after', '')
         ];
+        if (empty($data['title'])) {
+            return $this->error('标题不能为空');
+        }
         $id = $this->surveyService->add($data);
         if (empty($id)) {
-            return $this->error('failed to add');
+            return $this->error('添加调查失败');
         }
         $data['id'] = $id;
-        return $this->success('success', $data);
+        return $this->success('添加调查成功', $data);
     }
 
     /**
@@ -70,10 +81,35 @@ class SurveyController extends Controller
         return view('survey.select');
     }
 
-
+    /**
+     * search survey
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Throwable
+     */
     public function searchSurvey()
     {
         $title = request('title', '');
-        
+        $where[] = ['title', 'like', '%' . $title . '%'];
+        $list = $this->surveyService->getList($where, false);
+        $html = view('survey.search_survey', ['list' => $list])->render();
+        return $this->success('success', $html);
+    }
+
+    /**
+     * find question by title
+     * @param string $title
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function findQuestion()
+    {
+        $title = request('title', '');
+        if (empty($title)) {
+            return $this->error('参数错误');
+        }
+        $question = $this->questionService->find($title);
+        if (empty($question)) {
+            return $this->error('未找到题目');
+        }
+        return $this->success('找到了', $question);
     }
 }

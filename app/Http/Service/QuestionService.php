@@ -65,7 +65,7 @@ class QuestionService
         }
         $question = DB::table('question')
             ->where($where)
-            ->frist();
+            ->first();
         if ($question) {
             $question['answer'] = json_decode($question['answer'], true);
             $question['xpath'] = json_decode($question['xpath'], true);

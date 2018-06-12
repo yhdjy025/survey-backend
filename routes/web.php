@@ -30,7 +30,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 });
 
 Route::group(['prefix' => 'chrome', 'namespace' => 'Chrome'], function () {
-    Route::match(['get', 'post'], 'addQuestion/{id}', 'SurveyController@addQuestion');
+    Route::match(['get', 'post'], 'addQuestion/{sid}', 'SurveyController@addQuestion');
     Route::match(['get', 'post'], 'addSurvey', 'SurveyController@addSurvey');
     Route::match(['get', 'post'], 'selectSurvey', 'SurveyController@selectSurvey');
+    Route::match(['get', 'post'], 'searchSurvey', 'SurveyController@searchSurvey');
+    Route::match(['get', 'post'], 'findQuestion', 'SurveyController@findQuestion');
 });
