@@ -53,9 +53,27 @@ class SurveyController extends Controller
             'after'  => request('after', '')
         ];
         $id = $this->surveyService->add($data);
-        if (empty($ret)) {
+        if (empty($id)) {
             return $this->error('failed to add');
         }
-        return $this->success('success', $id);
+        $data['id'] = $id;
+        return $this->success('success', $data);
+    }
+
+    /**
+     * select survey
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function selectSurvey()
+    {
+
+        return view('survey.select');
+    }
+
+
+    public function searchSurvey()
+    {
+        $title = request('title', '');
+        
     }
 }
