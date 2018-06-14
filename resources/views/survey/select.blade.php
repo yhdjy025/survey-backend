@@ -47,13 +47,13 @@
                     <div class="form-group">
                         <label for="" class="control-label col-sm-2">题干选择器：</label>
                         <div class="col-sm-10">
-                            <textarea name="get_title" class="form-control input-sm"></textarea>
+                            <input type="text" name="get_title" class="form-control input-sm" value="">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="control-label col-sm-2">下一题选择器：</label>
                         <div class="col-sm-10">
-                            <textarea name="next" class="form-control input-sm"></textarea>
+                            <input type="text" name="next" class="form-control input-sm" value="">
                         </div>
                     </div>
                     <div class="form-group">
