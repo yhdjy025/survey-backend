@@ -79,8 +79,8 @@ class SurveyController extends Controller
      */
     public function selectSurvey()
     {
-
-        return view('survey.select');
+        $survey = $this->surveyService->getList([], 20);
+        return view('survey.select', ['survey' => $survey]);
     }
 
     /**

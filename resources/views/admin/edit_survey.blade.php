@@ -2,32 +2,32 @@
     <form action="{{ url()->current() }}" method="post" class="form-horizontal" id="edit-form">
         {{ csrf_field() }}
         <div class="form-group">
-            <label for="" class="control-label col-sm-2">调查标题：</label>
-            <div class="col-sm-10">
+            <label for="" class="control-label col-sm-3">调查标题：</label>
+            <div class="col-sm-9">
                 <input type="text" name="title" class="form-control input-sm" value="{{ $survey->title }}">
             </div>
         </div>
         <div class="form-group">
-            <label for="" class="control-label col-sm-2">题干选择器：</label>
-            <div class="col-sm-10">
+            <label for="" class="control-label col-sm-3">题干选择器：</label>
+            <div class="col-sm-9">
                 <input type="text" name="get_title" class="form-control input-sm" value="{{ $survey->get_title }}">
             </div>
         </div>
         <div class="form-group">
-            <label for="" class="control-label col-sm-2">下一题选择器：</label>
-            <div class="col-sm-10">
+            <label for="" class="control-label col-sm-3">下一题选择器：</label>
+            <div class="col-sm-9">
                 <input type="text" name="next" class="form-control input-sm" value="{{ $survey->next }}">
             </div>
         </div>
         <div class="form-group">
-            <label for="" class="control-label col-sm-2">作答之前的JS：</label>
-            <div class="col-sm-10">
+            <label for="" class="control-label col-sm-3">作答之前的JS：</label>
+            <div class="col-sm-9">
                 <textarea name="before" class="form-control input-sm">{{ $survey->before }}</textarea>
             </div>
         </div>
         <div class="form-group">
-            <label for="" class="control-label col-sm-2">作答之后的JS：</label>
-            <div class="col-sm-10">
+            <label for="" class="control-label col-sm-3">作答之后的JS：</label>
+            <div class="col-sm-9">
                 <textarea name="after" class="form-control input-sm">{{ $survey->after }}</textarea>
             </div>
         </div>
