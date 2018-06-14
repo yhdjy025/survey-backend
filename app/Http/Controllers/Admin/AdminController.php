@@ -94,9 +94,11 @@ class AdminController extends Controller
         }
         if (\request()->isMethod('post')) {
             $data = [
-                'title' => \request('title', ''),
-                'before' => \request('before', ''),
-                'after' => \request('after', '')
+                'title'     => request('title', ''),
+                'before'    => request('before', ''),
+                'after'     => request('after', ''),
+                'get_title' => request('get_title', ''),
+                'next'      => request('next', '')
             ];
             if (empty($data['title'])) {
                 return $this->error('title is not allow empty');

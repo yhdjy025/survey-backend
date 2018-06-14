@@ -30,9 +30,11 @@ class SurveyService
             throw new AppException('the survey is exist');
         }
         $data = [
-            'title' => $params['title'],
-            'before' => $params['before'],
-            'after' => $params['after'],
+            'title'     => $params['title'],
+            'before'    => $params['before'],
+            'after'     => $params['after'],
+            'get_title' => $params['get_title'],
+            'next'      => $params['next'],
             'create_at' => time()
         ];
         return DB::table('survey')->insertGetId($data);

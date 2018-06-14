@@ -56,9 +56,11 @@ class SurveyController extends Controller
     public function addSurvey()
     {
         $data = [
-            'title'  => request('title', ''),
-            'before' => request('before', ''),
-            'after'  => request('after', '')
+            'title'     => request('title', ''),
+            'before'    => request('before', ''),
+            'after'     => request('after', ''),
+            'get_title' => request('get_title', ''),
+            'next'      => request('next', '')
         ];
         if (empty($data['title'])) {
             return $this->error('标题不能为空');
