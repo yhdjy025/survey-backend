@@ -1,3 +1,6 @@
+@extends('layouts.front')
+
+@section('content')
 <div class="container-fluid">
     <div id="survey-option">
         <ul class="nav nav-tabs" role="tablist">
@@ -21,10 +24,10 @@
                     </div>
                 </form>
                 <div class="form-group">
-                    <table class="table table-hover">
+                    <table class="table">
                         <thead>
                         <tr>
-                            <th>ID</th>
+                            <th width="100px">ID</th>
                             <th>标题</th>
                             <th>创建时间</th>
                         </tr>
@@ -38,9 +41,9 @@
                             </tr>
                         @else
                             @foreach($survey as $item)
-                                <tr>
+                                <tr data-survey='@json($item)'>
                                     <td>
-                                        <input type="radio" style="display: block !important;" data-survey='@json($item)' name="id" value="{{ $item->id }}">
+                                        {{--<input type="radio" data-survey='@json($item)' name="id" value="{{ $item->id }}">--}}
                                         {{ $item->id }}
                                     </td>
                                     <td>{{ $item->title }}</td>
@@ -56,32 +59,32 @@
                 <form action="{{ url('chrome/addSurvey') }}" method="post" class="form-horizontal" id="edit-form">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <label for="" class="control-label col-sm-3">调查标题：</label>
-                        <div class="col-sm-9">
+                        <label for="" class="control-label text-right col-xs-3">调查标题：</label>
+                        <div class="col-xs-9">
                             <input type="text" name="title" class="form-control input-sm" value="">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="" class="control-label col-sm-3">题干选择器：</label>
-                        <div class="col-sm-9">
+                        <label for="" class="control-label text-right col-xs-3">题干选择器：</label>
+                        <div class="col-xs-9">
                             <input type="text" name="get_title" class="form-control input-sm" value="">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="" class="control-label col-sm-3">下一题选择器：</label>
-                        <div class="col-sm-9">
+                        <label for="" class="control-label text-right col-xs-3">下一题选择器：</label>
+                        <div class="col-xs-9">
                             <input type="text" name="next" class="form-control input-sm" value="">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="" class="control-label col-sm-3">作答之前的JS：</label>
-                        <div class="col-sm-9">
+                        <label for="" class="control-label text-right col-xs-3">作答之前的JS：</label>
+                        <div class="col-xs-9">
                             <textarea name="before" class="form-control input-sm"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="" class="control-label col-sm-3">作答之后的JS：</label>
-                        <div class="col-sm-9">
+                        <label for="" class="control-label text-right col-xs-3">作答之后的JS：</label>
+                        <div class="col-xs-9">
                             <textarea name="after" class="form-control input-sm"></textarea>
                         </div>
                     </div>
@@ -95,3 +98,4 @@
         </div>
     </div>
 </div>
+@endsection

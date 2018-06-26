@@ -13,6 +13,6 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
-        'admin/delete', 'chrome/searchSurvey', 'chrome/findQuestion'
+        'admin/survey', 'admin/question', 'admin/delete', 'chrome/searchSurvey', 'chrome/findQuestion'
     ];
 }

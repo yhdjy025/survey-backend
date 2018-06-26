@@ -6,9 +6,8 @@
     </tr>
 @else
     @foreach($list as $item)
-    <tr>
+    <tr data-survey='@json($item)'>
         <td>
-            <input type="radio" style="display: block !important;" data-survey='@json($item)' name="id" value="{{ $item->id }}">
             {{ $item->id }}
         </td>
         <td>{{ $item->title }}</td>

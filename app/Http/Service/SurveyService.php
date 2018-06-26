@@ -48,7 +48,7 @@ class SurveyService
      */
     public function getList($where = [], $perPage = null)
     {
-        $db = DB::table('survey')->where($where)->orderBy(['id' => 'desc']);
+        $db = DB::table('survey')->where($where)->orderBy('id', 'desc');
         if ($perPage) {
             return $db->paginate($perPage);
         }

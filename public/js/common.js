@@ -1,4 +1,20 @@
 
+//alert message
+function layerMsg(msg, type, callback, time) {
+    time = time ? time : 300
+    if (1 == type) {
+        layer.msg(msg, {icon: 6, shade: 0.2, time: time}, function () {
+            if (typeof callback == 'function')
+                callback();
+        })
+    } else {
+        layer.msg(msg, {icon: 5, shade: 0.2, time: 1500}, function () {
+            if (typeof callback == 'function')
+                callback();
+        })
+    }
+}
+
 $(function() {
     $('table').on('click', '.delete', function() {
         var url = $(this).data('url');

@@ -22,7 +22,7 @@
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('layer/layer.js') }}"></script>
-<script src="{{ asset('js/common.js') }}"></script>
+<script src="{{ asset('js/common.js?v=111') }}"></script>
 @yield('js')
 </body>
 </html>

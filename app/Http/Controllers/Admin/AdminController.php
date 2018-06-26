@@ -6,6 +6,7 @@ use App\Http\Service\QuestionService;
 use App\Http\Service\SurveyService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Redis;
 
 class AdminController extends Controller
 {

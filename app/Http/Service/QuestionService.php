@@ -42,6 +42,7 @@ class QuestionService
     public function getList($where = [], $perPage = null)
     {
         $db = DB::table('question')
+            ->orderBy('id', 'desc')
             ->where($where);
         if ($perPage) {
             return $db->paginate($perPage);
