@@ -62,7 +62,7 @@
                                                value="{{ $xpath[0] }}">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" name="value" class="form-control input-sm" placeholder="值，下拉和填空需要"
+                                        <input type="text" name="value" class="form-control input-sm" placeholder="值，填空需要"
                                                value="{{ $xpath[1] }}">
                                     </div>
                                     <span class="input-group-btn">
@@ -141,7 +141,7 @@
         if (1 == type) {
             var input = '   <div class="input-group form-group">\n' +
                 '                                <div class="col-sm-6"><input type="text" name="xpath" class="form-control input-sm" value="" placeholder="xpath"></div>' +
-                '                                <div class="col-sm-6"><input type="text" name="value" class="form-control input-sm" value="" placeholder="值，下拉和填空需要"></div>' +
+                '                                <div class="col-sm-6"><input type="text" name="value" class="form-control input-sm" value="" placeholder="值，填空需要"></div>' +
                 '                                    <span class="input-group-btn">' +
                 '                                        <button onclick="removeInput(this)" class="btn btn-danger btn-sm">删除</button>' +
                 '                                    </span>' +
