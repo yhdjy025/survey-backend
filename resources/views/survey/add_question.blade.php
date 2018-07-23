@@ -7,8 +7,11 @@
 
             <div class="form-group">
                 <label for="" class="control-label text-right col-xs-2">题目标题：</label>
-                <div class="col-xs-9">
+                <div class="col-xs-9 input-group form-group">
                     <input type="text" name="title" class="form-control input-sm" value="{{ $title or ''}}">
+                    <span class="input-group-btn">
+                    <button class="btn btn-info btn-sm get-title">获取</button>
+                    </span>
                 </div>
             </div>
 
@@ -40,10 +43,10 @@
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active">
-                                <a href="#js-item" aria-controls="js-item" role="tab" data-toggle="tab">javascript</a>
+                                <a href="#xpath-item" aria-controls="xpath-item" role="tab" data-toggle="tab">xpath</a>
                             </li>
                             <li role="presentation">
-                                <a href="#xpath-item" aria-controls="xpath-item" role="tab" data-toggle="tab">xpath</a>
+                                <a href="#js-item" aria-controls="js-item" role="tab" data-toggle="tab">javascript</a>
                             </li>
                             <li role="presentation">
                                 <a href="#answer-item" aria-controls="answer-item" role="tab" data-toggle="tab">answer</a>
@@ -51,16 +54,16 @@
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="js-item">
-                                <div class="form-group">
-                                <textarea name="script" id="" style="height: 130px;"
-                                          class="form-control input-sm" placeholder="js代码"></textarea>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="xpath-item">
+                            <div role="tabpanel" class="tab-pane active" id="xpath-item">
                                 <div class="form-group">
                                     <a href="javascript:;" data-type="1"
                                        class="btn btn-primary btn-sm add-input">添加一个</a>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="js-item">
+                                <div class="form-group">
+                                <textarea name="script" id="" style="height: 130px;"
+                                          class="form-control input-sm" placeholder="js代码"></textarea>
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="answer-item">

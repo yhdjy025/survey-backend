@@ -114,4 +114,17 @@ class SurveyController extends Controller
         }
         return $this->success('找到了', $question);
     }
+
+    public function getInfo($country = 'us')
+    {
+        switch ($country) {
+            case 'us':
+                $url = 'http://www.haoweichi.com/Index/random';
+                break;
+            case 'uk':
+                $url = 'http://haoweichi.com/Others/ying_guo_shen_fen_sheng_cheng';
+                break;
+        }
+        echo file_get_contents($url);
+    }
 }
