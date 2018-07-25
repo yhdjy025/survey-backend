@@ -48,9 +48,6 @@
                             <li role="presentation">
                                 <a href="#js-item" aria-controls="js-item" role="tab" data-toggle="tab">javascript</a>
                             </li>
-                            <li role="presentation">
-                                <a href="#answer-item" aria-controls="answer-item" role="tab" data-toggle="tab">answer</a>
-                            </li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -64,12 +61,6 @@
                                 <div class="form-group">
                                 <textarea name="script" id="" style="height: 130px;"
                                           class="form-control input-sm" placeholder="js代码"></textarea>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="answer-item">
-                                <div class="form-group">
-                                    <a href="javascript:;" data-type="2"
-                                       class="btn btn-primary btn-sm add-input">添加一个</a>
                                 </div>
                             </div>
                         </div>

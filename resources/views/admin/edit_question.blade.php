@@ -42,9 +42,9 @@
                         <li role="presentation">
                             <a href="#xpath-item" aria-controls="xpath-item" role="tab" data-toggle="tab">xpath</a>
                         </li>
-                        <li role="presentation">
+                        {{--<li role="presentation">
                             <a href="#answer-item" aria-controls="answer-item" role="tab" data-toggle="tab">answer</a>
-                        </li>
+                        </li>--}}
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
@@ -140,19 +140,19 @@
     function addInput(obj, type) {
         if (1 == type) {
             var input = '   <div class="input-group form-group">\n' +
-                '                                <div class="col-sm-6"><input type="text" name="xpath" class="form-control input-sm" value="" placeholder="xpath"></div>' +
-                '                                <div class="col-sm-6"><input type="text" name="value" class="form-control input-sm" value="" placeholder="值，填空需要"></div>' +
-                '                                    <span class="input-group-btn">' +
-                '                                        <button onclick="removeInput(this)" class="btn btn-danger btn-sm">删除</button>' +
-                '                                    </span>' +
-                '                                </div>';
+                ' <div class="col-sm-6"><input type="text" name="xpath" class="form-control input-sm" value="" placeholder="xpath"></div>' +
+                ' <div class="col-sm-6"><input type="text" name="value" class="form-control input-sm" value="" placeholder="值，填空需要"></div>' +
+                '     <span class="input-group-btn">' +
+                '         <button onclick="removeInput(this)" class="btn btn-danger btn-sm">删除</button>' +
+                '     </span>' +
+                ' </div>';
         } else {
             var input = '   <div class="input-group form-group">\n' +
-                '                                <input type="text" name="answer" class="form-control input-sm" value="" placeholder="答案">' +
-                '                                    <span class="input-group-btn">' +
-                '                                        <button onclick="removeInput(this)" class="btn btn-danger btn-sm">删除</button>' +
-                '                                    </span>' +
-                '                                </div>';
+                ' <input type="text" name="answer" class="form-control input-sm" value="" placeholder="答案">' +
+                '     <span class="input-group-btn">' +
+                '         <button onclick="removeInput(this)" class="btn btn-danger btn-sm">删除</button>' +
+                '     </span>' +
+                ' </div>';
         }
         $(obj).parent('.form-group').before(input);
     }
