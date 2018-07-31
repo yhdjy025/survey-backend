@@ -91,6 +91,7 @@ class SurveyController extends Controller
     public function searchSurvey()
     {
         $title = request('title', '');
+        dd($title);
         $where[] = ['title', 'like', '%' . $title . '%'];
         $list = $this->surveyService->getList($where, false);
         $html = view('survey.search_survey', ['list' => $list])->render();

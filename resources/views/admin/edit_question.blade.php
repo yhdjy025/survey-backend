@@ -42,9 +42,9 @@
                         <li role="presentation">
                             <a href="#xpath-item" aria-controls="xpath-item" role="tab" data-toggle="tab">xpath</a>
                         </li>
-                        {{--<li role="presentation">
+                        <li role="presentation">
                             <a href="#answer-item" aria-controls="answer-item" role="tab" data-toggle="tab">answer</a>
-                        </li>--}}
+                        </li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">

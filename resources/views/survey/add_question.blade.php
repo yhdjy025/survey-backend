@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="container-fluid">
-        <form action="{{ url()->current() }}" method="post" onsubmit="return false;" class="form-horizontal" id="edit-form">
+        <form action="{{ url()->current() }}" method="post" onsubmit="return false;" class="form-horizontal"
+              id="edit-form">
             {{ csrf_field() }}
 
             <div class="form-group">
@@ -48,25 +49,53 @@
                             <li role="presentation">
                                 <a href="#js-item" aria-controls="js-item" role="tab" data-toggle="tab">javascript</a>
                             </li>
+                            <li role="presentation">
+                                <a href="#answer-item" aria-controls="answer-item" role="tab"
+                                   data-toggle="tab">answer</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#random-item" aria-controls="random-item" role="tab"
+                                   data-toggle="tab">全选/随机</a>
+                            </li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="xpath-item">
-                                <div class="form-group">
+                                <div class="form-group" style="margin-left: 0;">
                                     <a href="javascript:;" data-type="1"
                                        class="btn btn-primary btn-sm add-input">添加一个</a>
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="js-item">
-                                <div class="form-group">
+                                <div class="form-group" style="margin-left: 0;">
                                 <textarea name="script" id="" style="height: 130px;"
                                           class="form-control input-sm" placeholder="js代码"></textarea>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="answer-item">
+                                <div class="form-group">
+                                    <a href="javascript:;"  data-type="2"
+                                       class="btn btn-primary btn-sm add-input">添加一个</a>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="random-item">
+                                <div class="form-group" style="margin-left: 0;">
+                                    <label class="radio">
+                                        <input type="radio" name="random-type" value="random" checked>随机
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="random-type" value="all">全选
+                                        <span style="margin-left: 40px;">除了第 <input type="text"
+                                                                                    name="except"> 个不选</span>
+                                    </label>
+                                </div>
+                                <div class="form-group" style="margin-left: 0;">
+                                    <a href="javascript:;" class="btn btn-info btn-sm get-random">获取</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
         </form>
     </div>
