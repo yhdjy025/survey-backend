@@ -27,6 +27,7 @@ class QuestionService
             'script'    => $params['script'],
             'answer'    => json_encode($params['answer']),
             'xpath'     => json_encode($params['xpath']),
+            'random'    => json_encode($params['random']),
             'create_at' => time()
         ];
         return DB::table('question')->insert($data);
@@ -70,6 +71,7 @@ class QuestionService
         if ($question) {
             $question->answer = json_decode($question->answer, true);
             $question->xpath = json_decode($question->xpath, true);
+            $question->random = json_decode($question->random, true);
         }
 
         return $question;

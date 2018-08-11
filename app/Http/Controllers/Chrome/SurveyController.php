@@ -33,7 +33,8 @@ class SurveyController extends Controller
                 'type'   => request('type', 1),
                 'script' => request('script', ''),
                 'answer' => request('answer', []),
-                'xpath'  => request('xpath', [])
+                'xpath'  => request('xpath', []),
+                'random' => request('random', [])
             ];
             if (empty($data['title'])) {
                 return $this->error('参数错误');
@@ -91,7 +92,6 @@ class SurveyController extends Controller
     public function searchSurvey()
     {
         $title = request('title', '');
-        dd($title);
         $where[] = ['title', 'like', '%' . $title . '%'];
         $list = $this->surveyService->getList($where, false);
         $html = view('survey.search_survey', ['list' => $list])->render();
@@ -100,7 +100,6 @@ class SurveyController extends Controller
 
     /**
      * find question by title
-     * @param string $title
      * @return \Illuminate\Http\JsonResponse
      */
     public function findQuestion()

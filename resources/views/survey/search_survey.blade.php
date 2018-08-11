@@ -6,7 +6,7 @@
     </tr>
 @else
     @foreach($list as $item)
-    <tr data-survey='@json($item)'>
+    <tr class="survey-item" data-survey='@json($item)'>
         <td>
             {{ $item->id }}
         </td>

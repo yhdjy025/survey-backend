@@ -27,6 +27,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::match(['get', 'post'], 'editSurvey/{id}', 'AdminController@editSurvey');
     Route::match(['get', 'post'], 'editQuestion/{id}', 'AdminController@editQuestion');
     Route::post('delete', 'AdminController@delete');
+    Route::get('getip', 'AdminController@getip');
 });
 
 Route::group(['prefix' => 'chrome', 'namespace' => 'Chrome'], function () {

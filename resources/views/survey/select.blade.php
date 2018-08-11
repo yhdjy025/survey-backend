@@ -41,7 +41,7 @@
                             </tr>
                         @else
                             @foreach($survey as $item)
-                                <tr data-survey='@json($item)'>
+                                <tr data-survey='@json($item)' class="survey-item">
                                     <td>
                                         {{--<input type="radio" data-survey='@json($item)' name="id" value="{{ $item->id }}">--}}
                                         {{ $item->id }}

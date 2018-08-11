@@ -74,29 +74,41 @@
                             </div>
                             <div role="tabpanel" class="tab-pane" id="answer-item">
                                 <div class="form-group">
-                                    <a href="javascript:;"  data-type="2"
+                                    <a href="javascript:;" data-type="2"
                                        class="btn btn-primary btn-sm add-input">添加一个</a>
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="random-item">
                                 <div class="form-group" style="margin-left: 0;">
-                                    <label class="radio">
-                                        <input type="radio" name="random-type" value="random" checked>随机
+                                    <label class="radio-inline">
+                                        <input type="radio" name="random-type" value="random">随机但单选
                                     </label>
-                                    <label class="radio">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="random-type" value="randoms">随机但多选
+                                    </label>
+                                    <label class="radio-inline">
                                         <input type="radio" name="random-type" value="all">全选
-                                        <span style="margin-left: 40px;">除了第 <input type="text"
-                                                                                    name="except"> 个不选</span>
                                     </label>
                                 </div>
                                 <div class="form-group" style="margin-left: 0;">
-                                    <a href="javascript:;" class="btn btn-info btn-sm get-random">获取</a>
+                                    <span class="pull-left control-label">除了第</span>
+                                    <div class="col-xs-4"><input type="text" class="input-sm form-control" name="except"></div>
+                                    <span class="pull-left">个不选（从0开始,多个用英文逗号分开）</span>
+                                </div>
+                                <div class="input-group form-group col-xs-8" style="margin-left: 0;">
+                                    <span class="pull-left control-label">xpath</span>
+                                    <div class="col-xs-10">
+                                        <input class="input-sm form-control" name="xpath" type="text">
+                                    </div>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-info btn-sm get-random">获取</button>
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
+            </div>
         </form>
     </div>
 @endsection
