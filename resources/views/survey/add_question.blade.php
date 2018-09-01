@@ -84,7 +84,7 @@
                                         <input type="radio" name="random-type" value="random">随机但单选
                                     </label>
                                     <label class="radio-inline">
-                                        <input type="radio" name="random-type" value="randoms">随机但多选
+                                        <input type="radio" name="random-type" value="randoms">随机多选
                                     </label>
                                     <label class="radio-inline">
                                         <input type="radio" name="random-type" value="all">全选

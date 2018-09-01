@@ -151,42 +151,4 @@ class AdminController extends Controller
             'question' => $question
         ]);
     }
-
-    public function getip()
-    {
-        $ip = $this->get_ip();
-        file_put_contents('ip.txt', $ip);
-        echo $ip;
-        die;
-    }
-
-    //不同环境下获取真实的IP
-    public function get_ip(){
-        $ip=false;
-        if(!empty($_SERVER['HTTP_CLIENT_IP'])){
-            $ip=$_SERVER['HTTP_CLIENT_IP'];
-        }
-        if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
-            $ips=explode (', ', $_SERVER['HTTP_X_FORWARDED_FOR']);
-            if($ip){ array_unshift($ips, $ip); $ip=FALSE; }
-            for ($i=0; $i < count($ips); $i++){
-                if(!preg_match ('/^(10│172.16│192.168)./', $ips[$i])){
-                    $ip=$ips[$i];
-                    break;
-                }
-            }
-        }
-        return ($ip ? $ip : $_SERVER['REMOTE_ADDR']);
-    }
-
-    public function getproxy()
-    {
-        $url1 = 'http://tpv.daxiangdaili.com/ip/?tid=555696835160805&num=1&delay=1&category=2&filter=on';
-        $url2 = 'http://www.xsdaili.com/get?orderid=113423170816400&num=1&carrier=2&protocol=2&an_ha=1&sp1=1&dedup=1&gj=1';
-        $url3 = 'http://www.15daili.com/apiProxy.ashx?un=yhdjy025&pw=chenwei59420&count=1&guolv=1';
-        //无忧代理
-        $url4 = 'http://api.ip.data5u.com/dynamic/get.html?order=ef07850ac3e9c990e9aa2461c7203306&sep=3';
-        $content = file_get_contents($url4);
-        echo $content;
-    }
 }

@@ -28,7 +28,25 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::match(['get', 'post'], 'editQuestion/{id}', 'AdminController@editQuestion');
     Route::post('delete', 'AdminController@delete');
     Route::get('getip', 'AdminController@getip');
+    Route::get('getproxy', 'AdminController@getproxy');
+    Route::get('getproxy2', 'AdminController@getproxy2');
+    Route::get('getKeywords', 'AdminController@getKeywords');
+    Route::get('test', 'AdminController@test');
 });
+
+Route::group(['prefix' => 'brush', 'namespace' => 'Brush'], function () {
+    Route::get('getTaskList', 'BrushController@getTaskList');
+    Route::match(['get', 'post'], 'addTask', 'BrushController@addTask');
+    Route::get('getip', 'BrushController@getip');
+    Route::get('getproxy', 'BrushController@getproxy');
+    Route::get('getproxy2', 'BrushController@getproxy2');
+    Route::get('getKeywords', 'BrushController@getKeywords');
+    Route::get('test', 'BrushController@test');
+    Route::get('getAllUrls', 'BrushController@getAllUrls');
+    Route::get('getTaskInfo/{id}', 'BrushController@getTaskInfo');
+    Route::get('getHourInfo', 'BrushController@getHourInfo');
+});
+
 
 Route::group(['prefix' => 'chrome', 'namespace' => 'Chrome'], function () {
     Route::match(['get', 'post'], 'addQuestion/{sid}', 'SurveyController@addQuestion');

@@ -16,3 +16,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::group(['prefix' => 'brush', 'namespace' => 'Brush'], function () {
+    Route::post('updateUrlStatus', 'BrushController@updateUrlStatus');
+    Route::post('deleteTask', 'BrushController@deleteTask');
+    Route::post('applyTask', 'BrushController@applyTask');
+});
